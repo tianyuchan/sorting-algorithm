@@ -20,7 +20,7 @@ package com.tianyuchan.sort;
 public class _03_InsertSort extends AbstractSort {
     @Override
     public void sort(int[] nums) {
-        if (nums == null || nums.length == 0) {
+        if (nums == null || nums.length < 2) {
             return;
         }
 

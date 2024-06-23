@@ -15,10 +15,10 @@ class SortTest {
 //        testSort(new _03_InsertSort());
 //        System.out.println("【希尔排序】");
 //        testSort(new _04_ShellSort());
-        System.out.println("【快速排序】");
-        testSort(new _05_QuickSort());
-//        System.out.println("【归并排序】");
-//        TestSort.testSort(new _06_MergeSort());
+//        System.out.println("【快速排序】");
+//        testSort(new _05_QuickSort());
+        System.out.println("【归并排序】");
+        testSort(new _06_MergeSort());
 //        System.out.println("【堆排序】");
 //        TestSort.testSort(new _07_HeapSort());
 //        System.out.println("【基数排序】");

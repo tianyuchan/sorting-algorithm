@@ -20,7 +20,7 @@ public class _04_ShellSort extends AbstractSort {
 
     @Override
     public void sort(int[] nums) {
-        if (nums == null || nums.length == 0) {
+        if (nums == null || nums.length < 2) {
             return;
         }
 

@@ -19,7 +19,7 @@ public class _02_SelectSort extends AbstractSort {
 
     @Override
     public void sort(int[] nums) {
-        if (nums == null || nums.length == 0) {
+        if (nums == null || nums.length < 2) {
             return;
         }
 
