@@ -6,36 +6,34 @@ class SortTest {
 
     @Test
     void sort() {
-        long start = System.currentTimeMillis();
-//        System.out.println("【冒泡排序】");
-//        testSort(new _01_BubbleSort());
-//        System.out.println("【选择排序】");
-//        testSort(new _02_SelectSort());
-//        System.out.println("【插入排序】");
-//        testSort(new _03_InsertSort());
-//        System.out.println("【希尔排序】");
-//        testSort(new _04_ShellSort());
-//        System.out.println("【快速排序】");
-//        testSort(new _05_QuickSort());
-//        System.out.println("【归并排序】");
-//        testSort(new _06_MergeSort());
-        System.out.println("【堆排序】");
+        System.out.println("==>1 冒泡排序");
+        testSort(new _01_BubbleSort());
+        System.out.println("\n==>2 选择排序");
+        testSort(new _02_SelectSort());
+        System.out.println("\n==>3 插入排序");
+        testSort(new _03_InsertSort());
+        System.out.println("\n==>4 希尔排序");
+        testSort(new _04_ShellSort());
+        System.out.println("\n==>5 快速排序");
+        testSort(new _05_QuickSort());
+        System.out.println("\n==>6 归并排序");
+        testSort(new _06_MergeSort());
+        System.out.println("\n==>7 堆排序");
         testSort(new _07_HeapSort());
-//        System.out.println("【基数排序】");
-//        TestSort.testSort(new _08_RadixSort());
-        long end = System.currentTimeMillis();
-        System.out.println("time: " + (end-start) + "ms");
-
+        System.out.println("\n==>8 基数排序");
+        testSort(new _08_RadixSort());
     }
 
     public static void testSort(Sort sort){
+        long start = System.currentTimeMillis();
+
         // 特殊值测试
         int[] nums1 = null;
         int[] expect1 = null;
         test("test1", sort, nums1, expect1);
 
         int[] nums2 = {};
-        int[] expect2 = null;
+        int[] expect2 = {};
         test("test2", sort, nums2, expect2);
 
         // 边界值测试
@@ -67,42 +65,20 @@ class SortTest {
         int[] nums9 = {11,123,5,56,3,980,4,6,26,2};
         int[] expect9 = {2,3,4,5,6,11,26,56,123,980};
         test("test9",sort,nums9,expect9);
+
+        long end = System.currentTimeMillis();
+        System.out.println("time: " + (end-start) + "ms");
     }
 
     private static void test(String testN, Sort sort, int[] nums, int[] expect){
+        System.out.println("==>==>" + testN);
         sort.sort(nums);
-
-        if (nums == null || expect == null) {
-            System.out.println(testN + " ---------------- pass");
-            if (nums != null && nums.length == 0) {
-                System.out.println("expect: {}");
-                System.out.println("result: {}");
-            } else {
-                System.out.println("expect: " + expect);
-                System.out.println("result: " + nums);
-            }
+        if (nums == null || nums.length == 0) {
             return;
         }
 
-        boolean success = true;
         for(int i=0; i< nums.length; i++) {
-            if(nums[i] != expect[i]) {
-                success = false;
-                break;
-            }
+            assert nums[i] == expect[i];
         }
-        if (success) {
-            System.out.println(testN + " ---------------- pass");
-        } else {
-            System.out.println(testN + " ---------------- failed");
-        }
-        System.out.print("expect: ");
-        for(int i=0; i<expect.length; i++)
-            System.out.print(expect[i] + " ");
-        System.out.println();
-        System.out.print("result: ");
-        for(int i=0; i<nums.length; i++)
-            System.out.print(nums[i] + " ");
-        System.out.println();
     }
 }
