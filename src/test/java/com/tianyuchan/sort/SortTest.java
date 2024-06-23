@@ -9,11 +9,11 @@ class SortTest {
         long start = System.currentTimeMillis();
 //        System.out.println("【冒泡排序】");
 //        testSort(new _01_BubbleSort());
-        System.out.println("【选择排序】");
-        testSort(new _02_SelectSort());
+//        System.out.println("【选择排序】");
+//        testSort(new _02_SelectSort());
 //        System.out.println("【插入排序】");
-//        TestSort.testSort(new _03_InsertSort());
-//        System.out.println("【希尔排序】");
+        testSort(new _03_InsertSort());
+        System.out.println("【希尔排序】");
 //        TestSort.testSort(new _04_ShellSort());
 //        System.out.println("【快速排序】");
 //        TestSort.testSort(new _05_QuickSort());
