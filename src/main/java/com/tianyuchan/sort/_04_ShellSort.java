@@ -30,15 +30,18 @@ public class _04_ShellSort extends AbstractSort {
             h = h * 3 + 1;
         }
 
-        int in, out, temp;
-        for (out = h; out < nums.length; out++) {
-            temp = nums[out];
-            in = out;
-            while (in > h - 1 && nums[in - h] > temp) {
-                nums[in] = nums[in - h];
-                in = in - h;
+        while (h > 0) {
+            int in, out, temp;
+            for (out = h; out < nums.length; out++) {
+                temp = nums[out];
+                in = out;
+                while (in > h - 1 && nums[in - h] > temp) {
+                    nums[in] = nums[in - h];
+                    in = in - h;
+                }
+                nums[in] = temp;
             }
-            nums[in] = temp;
+            h = (h - 1) / 3;
         }
     }  // end sort
 }
