@@ -23,34 +23,25 @@ public class _05_QuickSort extends AbstractSort {
             return;
         }
 
-        this.sort(nums, 0, nums.length);
+        this.quickSort(nums, 0, nums.length - 1);
     }
 
-    private void sort(int[] nums, int l, int r) {
-        // 左闭右开，l有可能等于r
-        if (r - 1 <= l) {
+    private void quickSort(int[] nums, int l, int r) {
+        if (l >= r) {
             return;
         }
-
-        int p = l, q = r - 1;
-        while (true) {
-            // 注意：左边num[l]为基准，必须从右边开始执行，从而保证停止位置的值一定小于等于num[l] ！！！
-            // 若以左边num[l]为基准，从左边开始执行，停止的位置一定是大于等于num[l]的，若大于num[l]的值与num[l]交换，相当于把大的值放到左边，显然无法实现排序。
-            while (p < q && nums[q] >= nums[l]) {
-                q--;
-            }
-            while (p < q && nums[p] <= nums[l]) {
-                p++;
-            }
-            if (p == q) {
-                break;
-            }
-            swap(nums, p, q);
+        // 以左边界值为基准值，双指针从两边向内遍历并交换
+        // 把基准值放到排序合适位置，并实现左边都小于等于基准值，右边都大于等于基准值
+        int x = nums[l], i = l - 1, j = r + 1;
+        while (i < j) {
+            do i++; while (nums[i] < x);
+            do j--; while (nums[j] > x);
+            if (i < j) swap(nums, i, j);
         }
-        // 为nums[l]找到合适的位置p后交换
-        swap(nums, p, l);
-        // 迭代处理位置p两边的区间
-        sort(nums, l, p);
-        sort(nums, p + 1, r);
-    }  // end sort
+        // 为nums[l]找到合适的位置p(或q)后交换
+        swap(nums, j, l);
+
+        quickSort(nums, l, j);
+        quickSort(nums, j + 1, r);
+    }  // end quickSort
 }
